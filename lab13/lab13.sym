@@ -1,0 +1,26 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	COUNT             300C
+//	STOPCOUNT         3013
+//	HERE              3017
+//	NEWWORD           301A
+//	SKIPADD           302D
+//	SKIP8             3033
+//	PRINT             3036
+//	PRINT1            303B
+//	STAGETWO          303E
+//	NEXTLINE          3042
+//	COUNTING          3049
+//	AAA               304C
+//	PR16              304F
+//	EEE               3054
+//	ZERO              3055
+//	ONE               3056
+//	START             3057
+//	NUM               3058
+//	LINE              3059
+//	ABC               305A
+//	FONT_DATA         305B
+

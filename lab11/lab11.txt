@@ -1,0 +1,24 @@
+Question 1: Describe the errors that occur when trying to assemble lab11.asm. Identify the cause of each error.
+
+14. The .ORIG command is not writen completedly. 
+16. Instruction starts before .ORIG, I just complete the .ORIG instruction.
+17. Original command did not define the value of R2 as -1 correctly and I correct that by adding -1 to R2. 
+19. Typo on the fourth line ADD, there should be only one comma instead of two.
+30. Original command did not clear the value of R5 and I correct that by using AND R5 with 0. 
+32. The second BR command should be BRzp instead of BRpz. 
+39. The final result should be stored at x30FF with label RESULT, which is not indicated in the original code.
+42. The original code did not have a END command at the bottom of the code. 
+
+
+
+Question 2: For each label in the code (with all bugs fixed), write down the corresponding memory location. 
+
+OUTERLOOP : x3009
+INNERLOOP : x300A 
+INPUT : x3013 
+RESULT : x3016
+
+
+Question 3: Between using labels and explicit memory locations/offsets, which one makes the most sense, and why?
+
+I think using labels makes way more sense as labels clearly indicate the location of another command with human language instead of purely numbers. Using labels make the coding process easier and more efficient. 

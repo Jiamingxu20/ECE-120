@@ -1,0 +1,135 @@
+;Introduction: This program aims to print several words locating from x5002. The program first calculated the number of words and then 
+;a few loops to print out those words. 
+
+;R5 and R6 are row counter and column counter
+;R0 is for printing 
+
+
+			.ORIG x3000       			; Program starts
+
+			AND   R0,R0,#0    			; Clear value of R0
+			AND   R1,R1,#0    			; Clear value of R1
+			AND   R2,R2,#0    			; Clear value of R2
+			AND   R3,R3,#0    			; Clear value of R3
+			AND   R4,R4,#0    			; Clear value of R4  
+			AND   R5,R5,#0    			; Clear value of R5  Row counter
+			AND   R6,R6,#0    			; Clear value of R6  Column counter
+
+
+		    LD    R1,START 
+			ADD   R2,R2,#8
+			ADD   R2,R2,#8
+			ADD   R1,R1,#0
+			BRz   PR16
+
+PR16		LD    R0,LINE				; Print next line
+			OUT 						; Print 
+			ADD   R2,R2,#-1
+			BRz   EEE
+			BRnzp PR16
+
+			AND   R0,R0,#0    			; Clear value of R0
+			AND   R1,R1,#0    			; Clear value of R1
+			AND   R2,R2,#0    			; Clear value of R2  
+
+; count how many words
+
+COUNT		LD    R2,START				; R2<-M[x5002]
+			ADD   R4,R2,R1				; R4<-R2+R1
+			LDR   R3,R4,#0				; Load R4 into R3
+			ADD   R3,R3,#0				; R3<-R3
+			BRz	  STOPCOUNT				; Stop counting if R3 becomes zero
+			ADD   R1,R1,#1				; R1<-R1+1
+			BRnzp COUNT				    ; continue count
+
+STOPCOUNT 	AND   R2,R2,#0    			; Clear value of R2	 
+			AND   R3,R3,#0    			; Clear value of R3
+			AND   R4,R4,#0    			; Clear value of R4  
+			ST    R1,NUM				; Store counts in NUM		
+; finish counting how many words
+
+
+HERE        LD    R1,NUM				; Load num into R1
+    		NOT   R1,R1					; R1<-NOT R1
+			ADD   R1,R1,#1				; R1<- -R1
+
+
+NEWWORD		LD    R2,ONE				; Load ONE address into R2
+            LD    R3,NUM				; Load the num into R3
+			ADD   R3,R3,R1				; R3<-R3+R1
+			ADD   R2,R2,R3				; R2<-R2+R3
+    		LDR	  R2,R2,#1				; Load ASCII value of the character into R2
+			ADD   R2,R2,R2				; R2<-2*ASCII value of the character
+			ADD   R2,R2,R2				; R2<-4*ASCII value of the character
+			ADD   R2,R2,R2				; R2<-8*ASCII value of the character
+			ADD   R2,R2,R2				; R2<-16*ASCII value of the character
+			AND   R3,R3,#0    			; Clear value of R3
+			LEA   R3,FONT_DATA			; Load the address of Font data into R3
+
+
+
+
+			ADD   R4,R2,R3				; Load the first part of starting row address 
+
+			ADD   R5,R5,#0				; R5<-R5+0
+			BRz   SKIPADD				; Go to skipadd if R5 is zero
+			ADD   R4,R4,#8				; R4<-R4+8
+			ADD   R4,R4,#8				; R4<-R4+8
+			NOT   R0,R5					; R0<-NOT R0
+			ADD   R0,R0,#1				; R0<-R0+1
+			ADD   R4,R4,R0				; R4<-R4+R0
+			
+
+SKIPADD		AND   R2,R2,#0    			; Clear value of R2	
+			AND   R3,R3,#0    			; Clear value of R3
+
+			ADD   R5,R5,#0				; R5<-R5
+			BRp	  SKIP8					; GO TO SKIP8 IF R5 IS POSITIVE
+
+			ADD   R5,R5,#8				; R5<-R5+8, R5=8
+			ADD   R5,R5,#8				; R5<-R5+8, R5=16
+
+
+SKIP8		
+			AND   R6,R6,#0				; Clear value of R6
+			ADD   R6,R6,#8				; R6<-R6+8 R6=8
+			LDR   R2,R4,#0				; R2<-M[R4]
+			
+
+PRINT		BRn   PRINT1				; Go to PRINT1 if value is one
+			LD    R0,ZERO				; Load ZERO
+			LDR   R0,R0,#0				; R0<-M[R0]
+			OUT							; Print 
+			BRnzp STAGETWO				; Go to stagetwo
+
+PRINT1      LD    R0,ZERO				; Load ZERO into R0
+			LDR   R0,R0,#1				; Load 
+			OUT							; Print
+
+STAGETWO  	ADD   R6,R6,#-1				; R6<-R6-1
+			BRz   COUNTING				; go print another word when R6=0
+			ADD   R2,R2,R2				; R2<-R2+R2
+			BRnzp PRINT					; continue printing
+
+
+NEXTLINE    LD    R0,LINE				; Print next line
+			OUT 						; Print 
+			ADD	  R4,R4,#1				; R4<-R4+1
+			ADD   R5,R5,#-1				; R5<-R5-1
+			BRp   HERE					; go to print new word
+			ADD   R1,R1,#0
+			BRnzp EEE
+
+COUNTING    ADD   R1,R1,#1				; R1<-R1+1
+			BRn  NEWWORD    			; go to new word if R1 is negative
+			BRzp  NEXTLINE				; go print next line if R1 is zero or positive
+
+EEE			HALT 
+
+			ZERO           .FILL	x5000
+			ONE 		   .FILL    x5001 
+			START		   .FILL    x5002 
+			NUM	           .FILL    x5100 
+			LINE           .FILL    x0A
+			ABC            .FILL    x5099
+

@@ -1,0 +1,42 @@
+# do Block3.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 21:52:08 on Mar 07,2022
+# vlog -work work Block3.vo 
+# -- Compiling module Block3
+# 
+# Top level modules:
+# 	Block3
+# End time: 21:52:08 on Mar 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 21:52:08 on Mar 07,2022
+# vlog -work work Waveform.vwf.vt 
+# -- Compiling module Block3_vlg_sample_tst
+# -- Compiling module Block3_vlg_check_tst
+# -- Compiling module Block3_vlg_vec_tst
+# 
+# Top level modules:
+# 	Block3_vlg_vec_tst
+# End time: 21:52:08 on Mar 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c -do "Block3.do" 
+# Start time: 21:52:08 on Mar 07,2022
+# //  ModelSim ALTERA 10.3d Oct  7 2014 Linux 3.10.0-1160.49.1.el7.x86_64
+# //
+# //  Copyright 1991-2014 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# Loading work.Block3_vlg_vec_tst
+# Loading work.Block3
+# Loading work.Block3_vlg_sample_tst
+# Loading work.Block3_vlg_check_tst
+# Simulation passed !
+# ** Note: $finish    : Waveform.vwf.vt(180)
+#    Time: 80 ns  Iteration: 0  Instance: /Block3_vlg_vec_tst/tb_out
+# End time: 21:52:08 on Mar 07,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

@@ -1,0 +1,9 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	OUTERLOOP         3009
+//	INNERLOOP         300A
+//	INPUT             3013
+//	RESULT            3016
+

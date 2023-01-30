@@ -1,0 +1,19 @@
+# do 1234.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 20:57:21 on Mar 11,2022
+# vlog -work work 1234.vo 
+# -- Compiling module \1234 
+# 
+# Top level modules:
+# 	\1234 
+# End time: 20:57:21 on Mar 11,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
+# Start time: 20:57:21 on Mar 11,2022
+# vlog -work work Waveform9.vwf.vt 
+# ** Error: Waveform9.vwf.vt(30): near "1234": syntax error, unexpected INTEGER NUMBER, expecting IDENTIFIER or automatic or TYPE_IDENTIFIER or static
+# End time: 20:57:22 on Mar 11,2022, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: /software/quartus-15.0/modelsim_ae/linuxaloem/vlog failed.
+# Executing ONERROR command at macro ./1234.do line 4

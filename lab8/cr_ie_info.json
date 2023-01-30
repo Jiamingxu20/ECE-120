@@ -1,0 +1,22 @@
+{
+	"system" : {
+		"platform" : "linux64",
+		"os_name" : "CentOS Linux",
+		"os_version" : ""
+	},
+	"error" : {
+		"executable" : "quartus_eda",
+		"comment" : "not_applicable",
+		"error_message" : "Segment Violation at (nil)",
+		"source_file" : "unknown",
+		"line" : "0",
+		"stack_trace" : "\t0x7feee12f73f4: db_hdb + 0xf93f4 (_ZN17HDB_INSTANCE_NAME20get_source_componentEv + 0x4)\n\t      0x2b1:\n",
+		"subsystem" : "unknown"
+	},
+	"quartus" : {
+		"quartus_bits" : "64",
+		"version" : "15.0.2",
+		"build" : "153",
+		"edition" : "Full Version"
+	}
+}

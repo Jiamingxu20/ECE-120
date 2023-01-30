@@ -1,0 +1,13 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	STAGEONE          3012
+//	STAGEFOUR         3015
+//	STAGEZERO         301A
+//	STAGETWO          301C
+//	STAGETHREE        3020
+//	ZERO              3025
+//	NEXTLINE          3026
+//	FONT_DATA         3027
+
